@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-slate-900 font-sans antialiased;
+}
+
+::selection {
+  background: rgba(15, 23, 42, 0.12);
+}
+
+.prose-calm {
+  @apply text-slate-600 leading-relaxed;
+}
+
+.input {
+  @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300;
+}
+
+.label {
+  @apply text-sm font-medium text-slate-700;
+}
+
+.font-playfair-display {
+  @apply font-serif;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition duration-150 ease-in-out;
+}
+
