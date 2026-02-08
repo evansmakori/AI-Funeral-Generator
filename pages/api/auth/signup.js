@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
   try {
     const { email, password } = Schema.parse(req.body);
-    const user = createUser({ email, password });
+    const user = await createUser({ email, password });
     const token = createSessionToken({ userId: user.id });
     setSessionCookie(res, token);
     return res.status(200).json({ user });
