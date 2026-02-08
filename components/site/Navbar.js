@@ -42,19 +42,13 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center">
             <Link
-              href="/signup"
+              href="/app"
               className="group font-medium text-blue-200 hover:text-white px-3 lg:px-5 py-2 transition duration-150 ease-in-out"
             >
               Design Now
               <span className="tracking-normal group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                 →
               </span>
-            </Link>
-            <Link
-              href="/login"
-              className="ml-4 rounded-full border border-white/30 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
-            >
-              Log in
             </Link>
           </div>
         </div>

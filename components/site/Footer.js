@@ -26,13 +26,10 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-white mb-3">Account</h4>
+            <h4 className="text-sm font-semibold text-white mb-3">Get started</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/login" className="hover:text-white">Log in</a>
-              </li>
-              <li>
-                <a href="/signup" className="hover:text-white">Create account</a>
+                <a href="/app" className="hover:text-white">Create a program</a>
               </li>
             </ul>
           </div>

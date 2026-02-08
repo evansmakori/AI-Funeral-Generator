@@ -20,11 +20,8 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button as="a" href="/signup" variant="primary">
+            <Button as="a" href="/app" variant="primary">
               Create a program
-            </Button>
-            <Button as="a" href="/login" variant="secondary">
-              Log in
             </Button>
           </div>
 

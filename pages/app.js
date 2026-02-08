@@ -6,10 +6,6 @@ import { ExportBar } from "../components/ExportBar";
 import { Container } from "../components/ui/Container";
 import { Card } from "../components/ui/Card";
 
-import { requirePageAuth } from "../lib/auth/withPageAuth";
-
-export const getServerSideProps = requirePageAuth();
-
 export default function AppPage() {
   const [projectId, setProjectId] = useState(null);
   const [program, setProgram] = useState(null);
@@ -77,15 +73,6 @@ export default function AppPage() {
               </p>
             </div>
 
-            <button
-              className="text-sm text-slate-600 hover:text-slate-900"
-              onClick={async () => {
-                await fetch("/api/auth/logout", { method: "POST" });
-                window.location.href = "/";
-              }}
-            >
-              Logout
-            </button>
           </div>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

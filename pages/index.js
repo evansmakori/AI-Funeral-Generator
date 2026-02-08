@@ -121,19 +121,13 @@ export default function Landing() {
                 </p>
                 <div className="max-w-xs mx-auto md:mx-0 sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                   <Link
-                    href="/signup"
+                    href="/app"
                     className="items-center transition duration-150 ease-in-out group btn text-white bg-blue-700 hover:bg-blue-800 w-full"
                   >
                     Start Designing
                     <span className="tracking-normal group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                       →
                     </span>
-                  </Link>
-                  <Link
-                    href="/login"
-                    className="btn text-white border border-white/40 hover:bg-white/10 w-full"
-                  >
-                    Log in
                   </Link>
                 </div>
               </div>
@@ -263,7 +257,7 @@ export default function Landing() {
             <p className="text-xl text-slate-400 mb-8">
               Honor your loved one with a personalized funeral program. Get started today.
             </p>
-            <Link className="btn text-white bg-blue-700 hover:bg-blue-800" href="/signup">
+            <Link className="btn text-white bg-blue-700 hover:bg-blue-800" href="/app">
               Design Now
             </Link>
           </Container>
