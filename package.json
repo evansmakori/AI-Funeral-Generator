@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/blobs": "^10.6.0",
     "clsx": "^2.1.1",
     "docx": "^9.1.0",
     "formidable": "^3.5.1",
