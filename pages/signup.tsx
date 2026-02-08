@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Container } from "../components/ui/Container";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
+import { getFirebaseAuth } from "../lib/firebase/client";
 
 export default function Signup() {
   const router = useRouter();
@@ -91,14 +93,21 @@ export default function Signup() {
     setError(null);
 
     try {
+      const auth = getFirebaseAuth();
+      const credential = await createUserWithEmailAndPassword(
+        auth,
+        email.trim().toLowerCase(),
+        password
+      );
+      if (name.trim()) {
+        await updateProfile(credential.user, { displayName: name.trim() });
+      }
+      const idToken = await credential.user.getIdToken();
+
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim().toLowerCase(),
-          password
-        })
+        body: JSON.stringify({ idToken })
       });
 
       const data = await res.json();
@@ -108,7 +117,7 @@ export default function Signup() {
       }
 
       // Success - redirect to login or dashboard
-      router.push("/login");
+      router.push("/app");
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : String(err);
       setError({ message: errorMessage });

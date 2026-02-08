@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { Container } from "../components/ui/Container";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
+import { getFirebaseAuth } from "../lib/firebase/client";
 
 const createLoginError = (message, field) => ({ message, field });
 
@@ -32,7 +34,7 @@ export default function Login() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       setLoading(false);
       return;
@@ -42,10 +44,14 @@ export default function Login() {
     setError(null);
 
     try {
+      const auth = getFirebaseAuth();
+      const credential = await signInWithEmailAndPassword(auth, email.trim(), password);
+      const idToken = await credential.user.getIdToken();
+
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), password })
+        body: JSON.stringify({ idToken })
       });
 
       const data = await res.json();
